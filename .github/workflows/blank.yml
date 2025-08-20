@@ -10,4 +10,15 @@ jobs:
     steps:
       - name: Ping Supabase
         run: curl -s https://rgwjowrezjtspgyuyopz.supabase.co/rest/v1/loto?select=* \
-          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}"
+          -H "apikey: $SUPABASE_ANON_KEY" \
+          -H "Authorization: Bearer $SUPABASE_ANON_KEY"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      - name: Ping Supabase 2
+        run: curl -s https://rgwjowrezjtspgyuyopz.supabase.co/rest/v1/pspv?select=* \
+          -H "apikey: $SUPABASE_ANON_KEY" \
+          -H "Authorization: Bearer $SUPABASE_ANON_KEY"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
