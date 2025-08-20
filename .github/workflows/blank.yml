@@ -1,0 +1,13 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # once daily at 5 AM UTC
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: curl -s https://rgwjowrezjtspgyuyopz.supabase.co/rest/v1/loto?select=* \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}"
