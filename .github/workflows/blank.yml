@@ -19,3 +19,10 @@ jobs:
           curl -s "${{ secrets.SUPABASE_URL_V2 }}/rest/v1/burner_states?select=*" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY_V2 }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY_V2 }}"
+          - name: Ping Supabase 2
+      - name: Ping Supabase 2
+        run: |
+          curl -s "${{ secrets.SUPABASE_URL_V3 }}/rest/v1/burner_states?select=*" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY_V3 }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY_V3 }}"
+
