@@ -21,7 +21,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY_V2 }}"
       - name: Ping Supabase 3
         run: |
-          curl -s "${{ secrets.SUPABASE_URL_V3 }}/rest/v1/burner_states?select=*" \
+          curl -s "${{ secrets.SUPABASE_URL_V3 }}/rest/v1/Grouping?select=*" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY_V3 }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY_V3 }}"
 
